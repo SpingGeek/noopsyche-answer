@@ -1,8 +1,9 @@
-package com.spring.noopsycheanswer.domain;
+package com.spring.noopsycheanswer.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,30 +11,31 @@ import lombok.Data;
 
 /**
  * 用户
+ *
  * @author spring
- * @TableName user
  */
-@TableName(value ="user")
+@TableName(value = "user")
 @Data
 public class User implements Serializable {
+
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
-     * 账号
+     * 用户账号
      */
     private String userAccount;
 
     /**
-     * 密码
+     * 用户密码
      */
     private String userPassword;
 
     /**
-     * 微信开放平台id
+     * 开放平台id
      */
     private String unionId;
 
@@ -75,6 +77,7 @@ public class User implements Serializable {
     /**
      * 是否删除
      */
+    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)

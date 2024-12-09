@@ -1,25 +1,23 @@
-package com.spring.noopsycheanswer.domain;
+package com.spring.noopsycheanswer.model.dto.userAnswer;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
+import com.spring.noopsycheanswer.common.PageRequest;
 import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
- * 用户答题记录
+ * 查询用户答案请求
+ *
  * @author spring
- * @TableName user_answer
  */
-@TableName(value ="user_answer")
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class UserAnswer implements Serializable {
+public class UserAnswerQueryRequest extends PageRequest implements Serializable {
+
     /**
-     * 
+     *
      */
-    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -73,20 +71,14 @@ public class UserAnswer implements Serializable {
     private Long userId;
 
     /**
-     * 创建时间
+     * id
      */
-    private Date createTime;
+    private Long notId;
 
     /**
-     * 更新时间
+     * 搜索词
      */
-    private Date updateTime;
+    private String searchText;
 
-    /**
-     * 是否删除
-     */
-    private Integer isDelete;
-
-    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

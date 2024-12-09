@@ -1,4 +1,4 @@
-package com.spring.noopsycheanswer.domain;
+package com.spring.noopsycheanswer.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,13 +9,14 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 题目
+ * 帖子点赞
+ *
  * @author spring
- * @TableName question
  */
-@TableName(value ="question")
+@TableName(value = "post_thumb")
 @Data
-public class Question implements Serializable {
+public class PostThumb implements Serializable {
+
     /**
      * id
      */
@@ -23,14 +24,9 @@ public class Question implements Serializable {
     private Long id;
 
     /**
-     * 题目内容（json格式）
+     * 帖子 id
      */
-    private String questionContent;
-
-    /**
-     * 应用 id
-     */
-    private Long appId;
+    private Long postId;
 
     /**
      * 创建用户 id
@@ -46,11 +42,6 @@ public class Question implements Serializable {
      * 更新时间
      */
     private Date updateTime;
-
-    /**
-     * 是否删除
-     */
-    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

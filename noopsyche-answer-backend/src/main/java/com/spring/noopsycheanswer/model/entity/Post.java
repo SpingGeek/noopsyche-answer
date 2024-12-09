@@ -1,56 +1,52 @@
-package com.spring.noopsycheanswer.domain;
+package com.spring.noopsycheanswer.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 /**
- * 评分结果
+ * 帖子
  * @author spring
- * @TableName scoring_result
  */
-@TableName(value ="scoring_result")
+@TableName(value = "post")
 @Data
-public class ScoringResult implements Serializable {
+public class Post implements Serializable {
+
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
-     * 结果名称，如物流师
+     * 标题
      */
-    private String resultName;
+    private String title;
 
     /**
-     * 结果描述
+     * 内容
      */
-    private String resultDesc;
+    private String content;
 
     /**
-     * 结果图片
+     * 标签列表 json
      */
-    private String resultPicture;
+    private String tags;
 
     /**
-     * 结果属性集合 JSON，如 [I,S,T,J]
+     * 点赞数
      */
-    private String resultProp;
+    private Integer thumbNum;
 
     /**
-     * 结果得分范围，如 80，表示 80及以上的分数命中此结果
+     * 收藏数
      */
-    private Integer resultScoreRange;
-
-    /**
-     * 应用 id
-     */
-    private Long appId;
+    private Integer favourNum;
 
     /**
      * 创建用户 id
@@ -70,6 +66,7 @@ public class ScoringResult implements Serializable {
     /**
      * 是否删除
      */
+    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)
